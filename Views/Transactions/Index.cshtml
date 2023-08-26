@@ -1,0 +1,449 @@
+﻿@model IEnumerable<CrusadeServices.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfJob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkOrderNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoiceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceNoGST)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModeOfPayment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Technicians)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdateBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtherAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salutation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_Salutation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_Address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_HomeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_MobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_OfficeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesPersonID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_ContactPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeOfJob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermsAndCondition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReferenceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_EmailID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_UnitNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsQuotation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrizeSpecial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TranStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitNo2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_UnitNo2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperationRemarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperationStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescRug)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescCarpet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescMattress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescUpholstery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescGeneral)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescOthers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfQuotation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeArrived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeCompletion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpecialInstructions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerTypeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsBlacklisted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfJob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkOrderNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceNoGST)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModeOfPayment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Technicians)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salutation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_Salutation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_HomeNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_MobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_OfficeNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesPersonID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_ContactPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContractDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeOfJob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TermsAndCondition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferenceNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_EmailID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_UnitNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsQuotation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrizeSpecial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TranStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitNo2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_UnitNo2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperationRemarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperationStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescRug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescCarpet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescMattress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescUpholstery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescGeneral)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescOthers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfQuotation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeArrived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeCompletion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialInstructions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerTypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsBlacklisted)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TransactionID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TransactionID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TransactionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

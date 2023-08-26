@@ -1,0 +1,209 @@
+﻿@model IEnumerable<CrusadeServices.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerTypeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesPersonID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salutation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_Salutation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_Address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_HomeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_MobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_OfficeNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdateBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.B_ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsBlacklisted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerTypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesPersonID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salutation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_Salutation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_PostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_HomeNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_MobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_OfficeNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.B_ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsBlacklisted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CustomerID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CustomerID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CustomerID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

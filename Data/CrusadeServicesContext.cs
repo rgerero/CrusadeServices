@@ -15,5 +15,11 @@ namespace CrusadeServices.Data
         }
 
         public DbSet<CrusadeServices.Models.Employee> Employee { get; set; } = default!;
+
+        public DbSet<CrusadeServices.Models.Customer> Customer { get; set; }
+
+        public DbSet<CrusadeServices.Models.Transaction> Transaction { get; set; }
+
+        public DbSet<CrusadeServices.Models.User> User { get; set; }
     }
 }
