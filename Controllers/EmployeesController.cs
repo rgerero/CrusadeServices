@@ -56,10 +56,13 @@ namespace CrusadeServices.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,EmployeeName,Department,SalesPersonId,CreatedDate,LastMOdified,LastModifiedBy")] Employee employee)
+        public async Task<IActionResult> Create([Bind("Id,EmployeeName,Department,SalesPersonId")] Employee employee)
         {
+            //,CreatedDate,LastMOdified,LastModifiedBy
             if (ModelState.IsValid)
             {
+                employee.CreatedDate = DateTime.Now;
+                employee.LastModifiedBy = "test userA";
                 _context.Add(employee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -88,8 +91,9 @@ namespace CrusadeServices.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,EmployeeName,Department,SalesPersonId,CreatedDate,LastMOdified,LastModifiedBy")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EmployeeName,Department,SalesPersonId")] Employee employee)
         {
+            //CreatedDate,LastMOdified,LastModifiedBy
             if (id != employee.Id)
             {
                 return NotFound();
@@ -99,6 +103,8 @@ namespace CrusadeServices.Controllers
             {
                 try
                 {
+                    employee.LastMOdified = DateTime.Now;
+                    employee.LastModifiedBy = "test userU";
                     _context.Update(employee);
                     await _context.SaveChangesAsync();
                 }
@@ -153,6 +159,19 @@ namespace CrusadeServices.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+
+        public async Task<IActionResult> Search()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> ShowSearchResults(string employeeName)
+        {
+            return _context.Employee != null ?
+                View("Index", await _context.Employee.Where(e => e.EmployeeName != null && e.EmployeeName.Contains(employeeName)).ToListAsync()) :
+                Problem("Entity set employee is null.");
         }
 
         private bool EmployeeExists(int id)
