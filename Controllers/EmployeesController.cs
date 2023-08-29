@@ -7,9 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CrusadeServices.Data;
 using CrusadeServices.Models;
+using Microsoft.AspNetCore.Authorization;
+
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace CrusadeServices.Controllers
 {
+    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly CrusadeServicesContext _context;
