@@ -10,7 +10,13 @@ namespace CrusadeServices.Controllers
 {
     public class AccessController : Controller
     {
-        //private readonly CrusadeServicesContext _context;
+        private readonly CrusadeServicesContext _context;
+
+        public AccessController(CrusadeServicesContext context)
+        {
+            _context=context;
+        }
+
         public IActionResult Login()
         {
             //check if user already logged-in
@@ -23,7 +29,7 @@ namespace CrusadeServices.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
-            if(login.Username == "admin" && login.Password == "admin")
+            if(UserExists(login))
             {
                 List<Claim> claims = new List<Claim>()
                 {
@@ -43,8 +49,12 @@ namespace CrusadeServices.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            ViewData["ValidateMessage"] = "invalid username / password.";
+            ViewData["ValidateMessage"] = "Invalid username / password.";
             return View();
+        }
+        private bool UserExists(Login login)
+        {
+            return (_context.User?.Any(u => u.UserName == login.Username && u.Password==login.Password)).GetValueOrDefault();
         }
     }
 }

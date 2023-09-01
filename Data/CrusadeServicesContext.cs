@@ -9,7 +9,7 @@ namespace CrusadeServices.Data
 {
     public class CrusadeServicesContext : DbContext
     {
-        public CrusadeServicesContext (DbContextOptions<CrusadeServicesContext> options)
+        public CrusadeServicesContext(DbContextOptions<CrusadeServicesContext> options)
             : base(options)
         {
         }
