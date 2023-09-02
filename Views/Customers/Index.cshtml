@@ -99,9 +99,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.IsBlacklisted)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmployeeID)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -194,9 +191,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsBlacklisted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployeeID)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CustomerID">Edit</a> |
