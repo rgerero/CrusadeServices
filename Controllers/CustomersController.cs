@@ -22,7 +22,11 @@ namespace CrusadeServices.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Customer.ToListAsync());
+            //return View(await _context.Customer.ToListAsync());
+
+            return _context.Customer != null ?
+                View("Index", await _context.Customer.Where(e => e.CompanyName != null && e.CompanyName.Length > 0).ToListAsync()) :
+                Problem("Entity set customer is null.");
         }
 
         // GET: Customers/Details/5

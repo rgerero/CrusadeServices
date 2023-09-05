@@ -7,7 +7,7 @@
         public int CustomerID { get; set; }
         public int CustomerTypeID { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
-        public DateTime LastUpdateDate { get; set; }=DateTime.Now;
+        public DateTime? LastUpdateDate { get; set; }=DateTime.Now;
         public bool IsBlacklisted { get; set; }
 
         [Column(TypeName = "varchar(10)")]
