@@ -1,7 +1,23 @@
-﻿@model IEnumerable<CrusadeServices.Models.Customer>
+﻿@using CrusadeServices.Utilities;
+@model IEnumerable<CrusadeServices.Models.Customer>
+@* @model PaginatedList<CrusadeServices.Models.Customer> *@
+
 
 @{
-    ViewData["Title"] = "Residential";
+	ViewData["Title"] = "Residential";
+
+	// var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+	// var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+
+	Pager pager = new Pager();
+
+	int pageNo = 0;
+
+	if(ViewBag.Pager!=null)
+	{
+		pager = ViewBag.Pager;
+		pageNo = pager.CurrentPage;
+	}
 }
 
 @* <h1>Residential</h1> *@
@@ -84,6 +100,7 @@
 				</div>
 				<div class="card-body px-0 pb-2">
 					<div class="table-responsive p-0">
+						<partial name="_pager" model="@pager" />
 						<table class="table align-items-center mb-0">
 							<thead>
 								<tr>
@@ -132,14 +149,24 @@
 										</td>
 									</tr>
 								}
+								@* <tr>
+									<td>
+										<a asp-action="Index" asp-route-pageNumber="@(Model._pageIndex-1)" class="btn btn-default @prevDisabled">Previous</a>
+										<a asp-action="Index" asp-route-pageNumber="@(Model._pageIndex+1)" class="btn btn-default @nextDisabled">Next</a>
+									</td>
+								</tr> *@
 							</tbody>
 						</table>
+						<partial name="_pager" model="@pager" />
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+
 
 @* <p>
     <a asp-action="Create">Create New</a>

@@ -86,4 +86,5 @@
         public string? B_ContactNo { get; set; }
 
     }
+
 }

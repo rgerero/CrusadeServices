@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CrusadeServices.Data;
 using CrusadeServices.Models;
+using CrusadeServices.Utilities;
 
 namespace CrusadeServices.Controllers
 {
@@ -20,13 +21,36 @@ namespace CrusadeServices.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index(string searchText = "", int pg=1,int pageSize=10)//
+		{
+            var query = _context.Customer.AsQueryable();
+
+            if (pg < 1) pg = 1;
+
+            //if (!string.IsNullOrEmpty(searchText))
+            //{
+            //    query = _context.Customer.Where(p => p.FirstName.Contains(searchText)).AsQueryable();
+            //}
+
+            int recCount = query.Count();
+			Pager searchPager = new Pager(recCount, pg, pageSize);
+			int recSkip = (pg - 1) * pageSize;
+            List<Customer> lstCustomer = query.Skip(recSkip).Take(pageSize).ToList();
+
+            //var data=lstCustomer.Skip(recSkip).Take(searchPager.PageSize).ToList();
+
+            this.ViewBag.Pager = searchPager;
+            
+            return View(lstCustomer);
+
+
+            //int pageSize = 10;
+            //return View(PaginatedList<Customer>.Create(_context.Customer.ToList(), pageNumber ?? 1, pageSize));
             //return View(await _context.Customer.ToListAsync());
 
-            return _context.Customer != null ?
-                View("Index", await _context.Customer.Where(e => e.CompanyName != null && e.CompanyName.Length > 0).ToListAsync()) :
-                Problem("Entity set customer is null.");
+            //return _context.Customer != null ?
+            //    View("Index", await _context.Customer.Where(e => e.CompanyName != null && e.CompanyName.Length > 0).ToListAsync()) :
+            //    Problem("Entity set customer is null.");
         }
 
         // GET: Customers/Details/5
